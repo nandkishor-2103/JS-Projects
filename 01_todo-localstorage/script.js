@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
     li.querySelector("button").addEventListener("click", (event) => {
       event.stopPropagation(); // prevent toggle from firing
       tasks = tasks.filter((t) => {
-        t.id !== task.id;
-        li.remove(); // not from the local storage
-        saveTasks();
+        return t.id !== task.id;
       });
+      li.remove(); // not from the local storage
+      saveTasks();
     });
     todoList.appendChild(li);
   }
